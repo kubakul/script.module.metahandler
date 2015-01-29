@@ -422,6 +422,7 @@ class TMDB(object):
                 #Update any missing information from IDMB
                 if meta.has_key('imdb_id'):
                     imdb_id = meta['imdb_id']
+            if imdb_id:
                 addon.log('Requesting IMDB for extra information: %s' % imdb_id, 0)
                 imdb_meta = self.search_imdb(name, imdb_id)
                 if imdb_meta:
@@ -434,4 +435,3 @@ class TMDB(object):
                 meta = self.update_imdb_meta({}, imdb_meta)
        
         return meta
-
